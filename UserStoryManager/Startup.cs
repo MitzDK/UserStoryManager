@@ -44,6 +44,9 @@ namespace UserStoryManager
             {
                 options.Conventions.AuthorizeFolder("/UserStory");
             }).SetCompatibilityVersion(CompatibilityVersion.Latest);
+
+
+            services.AddRazorPages().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
