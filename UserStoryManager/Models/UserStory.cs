@@ -11,6 +11,7 @@ namespace UserStoryManager.Models
         public DateTime CreationDate { get; set; }
         public int Priority { get; set; }
         public string StoryPoints { get; set; }
+        public int State { get; set; }
 
 
         public UserStory()
@@ -20,6 +21,7 @@ namespace UserStoryManager.Models
 
         public UserStory(string title, string description, int businessValue, DateTime creationDate, int priority, string storyPoints)
         {
+            State = 0;
             Id = nextId++;
             Title = title;
             Description = description;
@@ -28,5 +30,7 @@ namespace UserStoryManager.Models
             Priority = priority;
             StoryPoints = storyPoints;
         }
+
+
     }
 }

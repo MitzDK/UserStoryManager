@@ -1,22 +1,31 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using UserStoryManager.Models;
 using UserStoryManager.Services;
 
-namespace UserStoryManager.Pages
+namespace UserStoryManager.Pages.UserStory
 {
     public class UserStoriesModel : PageModel
     {
         private UserStoryService userStoryService;
-        public List<UserStory> UserStories { get; private set; }
+        public List<Models.UserStory> UserStories { get; private set; }
 
         public UserStoriesModel(UserStoryService userStoryService)
         {
             this.userStoryService = userStoryService;
         }
+
         public void OnGet()
         {
             UserStories = userStoryService.GetUserStories();
         }
+
+        public IActionResult OnPost(int id)
+        {
+            UserStories = userStoryService.GetUserStories();
+            userStoryService.ChangeState(id);
+            return Page();
+        }
     }
+    
 }

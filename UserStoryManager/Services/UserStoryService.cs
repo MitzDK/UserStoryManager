@@ -46,5 +46,15 @@ namespace UserStoryManager.Services
 
             return userStoryToBeDeleted;
         }
+
+        public void ChangeState(int userStoryId)
+        {
+            GetUserStory(userStoryId).State++;
+        }
+
+        public void ResetState(int userStoryId)
+        {
+            GetUserStory(userStoryId).State = 0;
+        }
     }
 }

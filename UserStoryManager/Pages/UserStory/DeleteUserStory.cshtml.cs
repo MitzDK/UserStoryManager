@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using UserStoryManager.Models;
 using UserStoryManager.Services;
 
-namespace UserStoryManager.Pages
+namespace UserStoryManager.Pages.UserStory
 {
     public class DeleteUserStoryModel : PageModel
     {
-        [BindProperty] public UserStory UserStory { get; set; }
+        [BindProperty] public Models.UserStory UserStory { get; set; }
         private UserStoryService userStoryService;
+        
 
         public DeleteUserStoryModel(UserStoryService userStoryService)
         {
@@ -21,8 +21,9 @@ namespace UserStoryManager.Pages
 
         public IActionResult OnPost()
         {
-            UserStory deletedUserStory = userStoryService.DeleteUserStory(UserStory.Id);
+            Models.UserStory deletedUserStory = userStoryService.DeleteUserStory(UserStory.Id);
             return RedirectToPage("UserStories");
         }
+        
     }
 }

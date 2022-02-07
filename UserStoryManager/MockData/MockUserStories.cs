@@ -16,6 +16,9 @@ namespace UserStoryManager.MockData
 
         public static List<UserStory> GetUserStories()
         {
+            userStories[1].State = 1;
+            userStories[2].State = 2;
+            userStories[3].State = 3;
             return userStories;
         }
     }
