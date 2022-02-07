@@ -43,3 +43,4 @@ C:\Users\Victur\Desktop\UserStoryManager\UserStoryManager\obj\Debug\net5.0\ref\U
 C:\Users\Victur\Desktop\UserStoryManager\UserStoryManager\obj\Debug\net5.0\UserStoryManager.pdb
 C:\Users\Victur\Desktop\UserStoryManager\UserStoryManager\obj\Debug\net5.0\UserStoryManager.genruntimeconfig.cache
 C:\Users\Victur\Desktop\UserStoryManager\UserStoryManager\obj\Debug\net5.0\UserStoryManager.csproj.CopyComplete
+C:\Users\Victur\Desktop\UserStoryManager\UserStoryManager\obj\Debug\net5.0\Razor\Pages\LogIn\LogOutPage.cshtml.g.cs
