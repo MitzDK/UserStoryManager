@@ -3,25 +3,139 @@
 @{
 }
 <h1>User Stories</h1>
-<ul>
-    @foreach (var userStory in Model.UserStories)
-    {
-        <li>
-            <div class="card mb-2" style="width: 30rem;">
-                <div class="card-header p-2">
-                    <h5 class="card-title">(@userStory.Id) @userStory.Title</h5>
-                </div>
+
+@*  0 = Stories
+    1 =  To Do
+    2 = In Progress
+    3 = To Verify
+    4 = Donedone*@
+
+
+<div class="container container-fixer">
+    <div class="row flex-row flex-sm-nowrap pt-3">
+        <div class="col-3">
+            <div class="card bg-light">
                 <div class="card-body">
-                    @userStory.Description
-                </div>
-                <div class="card-footer">
-                    <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@userStory.Id"><i class="fa fa-trash"></i></a>
-                    <button id="myModalBtn" class="btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-info-circle"></i></button>
+                    <h6 class="card-title text-uppercase text-truncate py-2">To Do</h6>
+                    <div class="items border border-light">
+                        @foreach (var us in Model.UserStories)
+                        {
+                            if (us.State == 1)
+                            {
+                                <div class="card mb-2" style="width: 100%;">
+                                    <div class="card-header p-2">
+                                        <h5 class="card-title">(@us.Id) @us.Title</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        @us.Description
+                                    </div>
+                                    <div class="card-footer">
+                                        <form method="post" asp-page="UserStoriesModel">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
                 </div>
             </div>
-        </li>
-    }
-</ul>
+        </div>
+        <div class="col-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Doing</h6>
+                    <div class="items border border-light">
+                        @foreach (var us in Model.UserStories)
+                        {
+                            if (us.State == 2)
+                            {
+                                <div class="card mb-2" style="width: 100%;">
+                                    <div class="card-header p-2">
+                                        <h5 class="card-title">(@us.Id) @us.Title</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        @us.Description
+                                    </div>
+                                    <div class="card-footer">
+                                        <form method="post" asp-page="UserStoriesModel">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Done</h6>
+                    <div class="items border border-light">
+                        @foreach (var us in Model.UserStories)
+                        {
+                            if (us.State == 3)
+                            {
+                                <div class="card mb-2" style="width: 100%;">
+                                    <div class="card-header p-2">
+                                        <h5 class="card-title">(@us.Id) @us.Title</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        @us.Description
+                                    </div>
+                                    <div class="card-footer">
+                                        <form method="post" asp-page="UserStoriesModel">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Done Done</h6>
+                    <div class="items border border-light">
+                        @foreach (var us in Model.UserStories)
+                        {
+                            if (us.State == 4)
+                            {
+                                <div class="card mb-2" style="width: 100%;">
+                                    <div class="card-header p-2">
+                                        <h5 class="card-title">(@us.Id) @us.Title</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        @us.Description
+                                    </div>
+                                    <div class="card-footer">
+                                        <form method="post">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <a class="btn" type="button" title="submit" asp-route-id="@us.Id"><i class="fa-solid fa-angles-left"></i></a>
+                                            <button class="btn" type="submit" style="float:right" asp-page-handler="Reset" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -47,7 +161,7 @@
 @section Scripts
 {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#myModal").modal({ backdrop: "static" });
             $("#myModal").modal("show");
         });

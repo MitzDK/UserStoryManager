@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -24,6 +25,13 @@ namespace UserStoryManager.Pages.UserStory
         {
             UserStories = userStoryService.GetUserStories();
             userStoryService.ChangeState(id);
+            return Page();
+        }
+
+        public IActionResult OnPostReset(int id)
+        {
+            UserStories = userStoryService.GetUserStories();
+            userStoryService.ResetState(id);
             return Page();
         }
     }

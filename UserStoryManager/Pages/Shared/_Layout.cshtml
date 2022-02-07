@@ -7,6 +7,7 @@
     <title>@ViewData["Title"] - UserStoryManager</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -19,6 +20,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav">
+
                         @if (LoginPageModel.LoggedInUser == null)
                         {
                             <li class="nav-item">
@@ -27,19 +29,25 @@
                         }
                         else
                         {
-                            <li class="nav-item nav-link mr-3">
-                                User: @LoginPageModel.LoggedInUser.UserName
+                            <li class="nav-item nav-link">
+                                <a class="nav-link" asp-page="/UserStory/BacklogUserStories">Back log</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item nav-link">
+                                <a class="nav-link" asp-page="/UserStory/UserStories">Sprint log</a>
+                            </li>
+                            <li class="nav-item nav-link">
+                                <div class="nav-link">User: @LoginPageModel.LoggedInUser.UserName</div>
+                                </li>
+                            <li class="nav-item nav-link">
                                 <a class="nav-link" asp-area="" asp-page="/LogIn/LogOutPage">Logout</a>
-                            </li>
+                                </li>
                         }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container container-fixer">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
