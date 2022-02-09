@@ -1,5 +1,6 @@
 ﻿@page
 @using UserStoryManager.Models
+@using System.Reflection.Metadata.Ecma335
 @model UserStoryManager.Pages.UserStory.UserStoriesModel
 @{
 }
@@ -30,11 +31,14 @@
                                     <div class="card-body">
                                         @us.Description
                                     </div>
-                                <div class="card-footer">
-                                    <form method="post" asp-page="UserStoriesModel">
-                                        <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
-                                        <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
-                                        <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                                    <div class="card-footer">
+                                        <form method="post" asp-page="UserStoriesModel">
+                                        
+                                        
+
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -60,11 +64,11 @@
                                     <div class="card-body">
                                         @us.Description
                                     </div>
-                                <div class="card-footer">
-                                    <form method="post" asp-page="UserStoriesModel">
-                                        <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
-                                        <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
-                                        <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                                    <div class="card-footer">
+                                        <form method="post" asp-page="UserStoriesModel">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -90,11 +94,12 @@
                                     <div class="card-body">
                                         @us.Description
                                     </div>
-                                <div class="card-footer">
-                                    <form method="post" asp-page="UserStoriesModel">
-                                        <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
-                                        <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
-                                        <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                                    <div class="card-footer">
+                                        <button onclick="DeleteConfirmation()">Button</button>
+                                        <form method="post" asp-page="UserStoriesModel">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -120,11 +125,11 @@
                                     <div class="card-body">
                                         @us.Description
                                     </div>
-                                <div class="card-footer">
-                                    <form method="post">
-                                        <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
-                                        <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
-                                        <button class="btn" type="submit" style="float:right" asp-page-handler="Reset" asp-route-id="@us.Id"><i class="fa-solid fa-backward-fast"></i></button>
+                                    <div class="card-footer">
+                                        <form method="post">
+                                            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                                            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                                            <button class="btn" type="submit" style="float: right" asp-page-handler="Reset" asp-route-id="@us.Id"><i class="fa-solid fa-backward-fast"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -136,3 +141,11 @@
         </div>
     </div>
 </div>
+@*<button onclick="DeleteConfirmation()">Button</button>
+@section Scripts{
+    <script>
+        function DeleteConfirmation() {
+            var result = confirm("You sure my negro?");
+        }
+    </script>
+}*@
