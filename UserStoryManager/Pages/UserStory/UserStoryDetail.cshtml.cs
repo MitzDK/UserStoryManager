@@ -1,24 +1,25 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using UserStoryManager.Models;
 using UserStoryManager.Services;
 
 namespace UserStoryManager.Pages.UserStory
 {
     public class UserStoryDetailModel : PageModel
     {
-        [BindProperty] public Models.UserStory UserStory { get; set; }
-        public List<Models.UserStory> UserStories { get; private set; }
-        private UserStoryService _userStoryService;
+        [BindProperty] public Models.Card CardStory { get; set; }
+        public StoryBoard StoryBoard { get; set; }
+        private StoryBoardService _storyBoardService;
 
-        public UserStoryDetailModel(UserStoryService userStoryService)
+        public UserStoryDetailModel(StoryBoardService storyBoardService)
         {
-            this._userStoryService = userStoryService;
+            this._storyBoardService = storyBoardService;
         }
         public void OnGet(int id)
         {
-            UserStories = _userStoryService.GetUserStories();
-            UserStory = _userStoryService.GetUserStory(id);
+            StoryBoard = _storyBoardService.GetStoryBoard();
+            CardStory = _storyBoardService.GetUserStory(id);
         }
     }
 }

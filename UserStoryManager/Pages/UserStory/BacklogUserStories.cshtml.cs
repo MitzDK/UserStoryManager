@@ -1,28 +1,29 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using UserStoryManager.Models;
 using UserStoryManager.Services;
 
 namespace UserStoryManager.Pages.UserStory
 {
     public class BacklogUserStoriesModel : PageModel
     {
-        private UserStoryService userStoryService;
-        public List<Models.UserStory> UserStories { get; private set; }
+        private StoryBoardService storyBoardService;
+        public StoryBoard StoryBoard { get; set; }
 
-        public BacklogUserStoriesModel(UserStoryService userStoryService)
+        public BacklogUserStoriesModel(StoryBoardService storyBoardService)
         {
-            this.userStoryService = userStoryService;
+            this.storyBoardService = storyBoardService;
         }
 
         public void OnGet()
         {
-            UserStories = userStoryService.GetUserStories();
+            StoryBoard = storyBoardService.GetStoryBoard();
         }
 
         public IActionResult OnPost(int id)
         {
-            userStoryService.ChangeState(id);
+            storyBoardService.ChangeState(id);
             return RedirectToPage("/UserStory/BacklogUserStories");
         }
     }

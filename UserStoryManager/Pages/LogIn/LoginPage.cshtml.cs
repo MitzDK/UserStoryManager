@@ -33,7 +33,7 @@ namespace UserStoryManager.Pages.LogIn
 
         public async Task<IActionResult> OnPost()
         {
-            List<User> users = _userService.GetUsers();
+            List<TeamMember> users = _userService.GetUsers();
             foreach (var user in users)
             {
                 if (UserName.ToLower() == user.UserName.ToLower() && Password == user.Password)

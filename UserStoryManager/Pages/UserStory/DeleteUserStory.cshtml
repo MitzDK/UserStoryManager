@@ -1,11 +1,12 @@
 ﻿@page "{id:int}"
+@using UserStoryManager.Models
 @model UserStoryManager.Pages.UserStory.DeleteUserStoryModel
 @{
 }
 <h1>Delete Confirmation</h1>
 <header>DeleteUserStory</header>
 <div class="alert alert-danger">
-    <h5>Are you sure you want to delete the User Story - @Model.UserStory.Title</h5>
+    <h5>Are you sure you want to delete the User Story - @Model.Card.Title</h5>
     <form method="post">
         <button type="submit" class="btn btn-danger">Yes</button>
         <a href='javascript:history.go(-1)' class="btn btn-primary">No</a>

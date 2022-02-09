@@ -28,7 +28,7 @@ namespace UserStoryManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSingleton<UserStoryService, UserStoryService>();
+            services.AddSingleton<StoryBoardService, StoryBoardService>();
             services.AddSingleton<UserService, UserService>();
 
             services.Configure<CookiePolicyOptions>(options =>

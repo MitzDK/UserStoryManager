@@ -7,29 +7,23 @@ namespace UserStoryManager.Pages.UserStory
 {
     public class DeleteUserStoryModel : PageModel
     {
-        [BindProperty] public Models.UserStory UserStory { get; set; }
-        private UserStoryService userStoryService;
+        [BindProperty] public Models.Card Card { get; set; }
+        private StoryBoardService storyBoardService;
         
 
-        public DeleteUserStoryModel(UserStoryService userStoryService)
+        public DeleteUserStoryModel(StoryBoardService userStoryService)
         {
-            this.userStoryService = userStoryService;
+            this.storyBoardService = userStoryService;
         }
         public void OnGet(int id)
         {
-            UserStory = userStoryService.GetUserStory(id);
+            Card = storyBoardService.GetUserStory(id);
         }
 
         public IActionResult OnPost()
         {
-            Models.UserStory deletedUserStory = userStoryService.DeleteUserStory(UserStory.Id);
-            return RedirectToPage(Request.Headers["Referer"].ToString());
+            Models.Card deletedUserStory = storyBoardService.DeleteUserStory(Card.Id);
+            return RedirectToPage("/UserStory/UserStories");
         }
-
-        public IActionResult OnPostReturn()
-        {
-            return Redirect(Request.Headers["Referer"].ToString());
-        }
-        
     }
 }

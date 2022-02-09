@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using UserStoryManager.MockData;
 using UserStoryManager.Models;
 
@@ -9,14 +10,14 @@ namespace UserStoryManager.Services
 {
     public class UserService
     {
-        public List<User> Users;
+        public List<TeamMember> Users;
 
         public UserService()
         {
-            Users = MockUsers.GetUsers();
+            Users = MockData.MockUsers.GetUsers();
         }
 
-        public List<User> GetUsers()
+        public List<TeamMember> GetUsers()
         {
             return Users;
         }
@@ -29,5 +30,6 @@ namespace UserStoryManager.Services
             }
             return null;
         }
+
     }
 }

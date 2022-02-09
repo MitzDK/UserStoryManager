@@ -6,7 +6,7 @@
 <div class="card">
     <div class="card-header">Backlog</div>
     <div class="card-body">
-        @foreach (var us in Model.UserStories)
+        @foreach (var us in Model.StoryBoard.Cards)
         {
             if (us.State == 0)
             {

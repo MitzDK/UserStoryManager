@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <h6 class="card-title text-uppercase text-truncate py-2">To Do</h6>
                     <div class="items border border-light">
-                        @foreach (var us in Model.UserStories)
+                        @foreach (var us in Model.StoryBoard.Cards)
                         {
                             if (us.State == 1)
                             {
@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <h6 class="card-title text-uppercase text-truncate py-2">Doing</h6>
                     <div class="items border border-light">
-                        @foreach (var us in Model.UserStories)
+                        @foreach (var us in Model.StoryBoard.Cards)
                         {
                             if (us.State == 2)
                             {
@@ -78,7 +78,7 @@
                 <div class="card-body">
                     <h6 class="card-title text-uppercase text-truncate py-2">Done</h6>
                     <div class="items border border-light">
-                        @foreach (var us in Model.UserStories)
+                        @foreach (var us in Model.StoryBoard.Cards)
                         {
                             if (us.State == 3)
                             {
@@ -108,7 +108,7 @@
                 <div class="card-body">
                     <h6 class="card-title text-uppercase text-truncate py-2">Done Done</h6>
                     <div class="items border border-light">
-                        @foreach (var us in Model.UserStories)
+                        @foreach (var us in Model.StoryBoard.Cards)
                         {
                             if (us.State == 4)
                             {
@@ -141,15 +141,19 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><small class="text-muted">(@Model.UserStory.Id)</small>@Model.UserStory.Title</h5>
+                <h5 class="modal-title"><small class="text-muted">(@Model.CardStory.Id)</small>@Model.CardStory.Title</h5>
                 <a type="button" class="close" asp-page="UserStories">&times;</a>
             </div>
             <div class="modal-body">
-                <p><b>Description</b>@Model.UserStory.Description</p>
-                <p><b>Business Value</b>@Model.UserStory.BusinessValue</p>
-                <p><b>Creation Date</b>@Model.UserStory.DateCreated</p>
-                <p><b>Priority</b>@Model.UserStory.Priority</p>
-                <p><b>Story Points</b>@Model.UserStory.StoryPoints</p>
+                @if (Model.CardStory is Models.UserStory)
+                {
+                    var us = (Models.UserStory) Model.CardStory;
+                    <p><b>Description</b>@us.Description</p>
+                    <p><b>Business Value</b>@us.BusinessValue</p>
+                    <p><b>Creation Date</b>@us.DateCreated</p>
+                    <p><b>Priority</b>@us.Priority</p>
+                    <p><b>Story Points</b>@us.StoryPoints</p>
+                }
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-danger" asp-page="UserStories">Close</a>
@@ -167,3 +171,4 @@
         });
     </script>
 }
+

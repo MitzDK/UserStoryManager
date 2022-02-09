@@ -15,7 +15,6 @@ namespace UserStoryManager.MockData
             new TeamMember(3, "Martin Lylloff", "Martin", "123", "Lead Designer", "martin.png"),
             new TeamMember(4, "Frederik Bressendorff", "Frederik", "123", "Paint Artist", "frederik.png"),
             new TeamMember(5, "Andreas Broberg", "Andreas", "123", "Døllerdreng", "andreas.png"),
-
         };
 
         public static List<TeamMember> GetUsers()
