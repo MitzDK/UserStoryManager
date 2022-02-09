@@ -8,30 +8,30 @@ namespace UserStoryManager.Pages.UserStory
 {
     public class UserStoriesModel : PageModel
     {
-        private UserStoryService userStoryService;
+        private UserStoryService _userStoryService;
         public List<Models.UserStory> UserStories { get; private set; }
 
         public UserStoriesModel(UserStoryService userStoryService)
         {
-            this.userStoryService = userStoryService;
+            this._userStoryService = userStoryService;
         }
 
         public void OnGet()
         {
-            UserStories = userStoryService.GetUserStories();
+            UserStories = _userStoryService.GetUserStories();
         }
 
         public IActionResult OnPost(int id)
         {
-            UserStories = userStoryService.GetUserStories();
-            userStoryService.ChangeState(id);
+            UserStories = _userStoryService.GetUserStories();
+            _userStoryService.ChangeState(id);
             return Page();
         }
 
         public IActionResult OnPostReset(int id)
         {
-            UserStories = userStoryService.GetUserStories();
-            userStoryService.ResetState(id);
+            UserStories = _userStoryService.GetUserStories();
+            _userStoryService.ResetState(id);
             return Page();
         }
     }

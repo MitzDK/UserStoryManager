@@ -15,14 +15,14 @@
                     <h5 class="card-title">(@us.Id) @us.Title</h5>
                 </div>
                 <div class="card-body">@us.Description</div>
-                <div class="card-footer">
-                    <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
-                    <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
-                    <form method = "post" >
-                        <button type="submit" class="btn btn-primary" asp-route-id="@us.Id">Move</button>
-                    </form>
+                    <div class="card-footer">
+                        <a class="btn" type="button" style="float: left" asp-page="DeleteUserStory" asp-route-id="@us.Id"><i class="fa fa-trash"></i></a>
+                        <a class="btn" type="button" style="float: left" asp-page="UserStoryDetail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                        <form method="post">
+                            <button class="btn" type="submit" style="float: right" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
                 </div>
-            </div>
             }
         }
     </div>

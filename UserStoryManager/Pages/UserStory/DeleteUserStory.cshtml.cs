@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using UserStoryManager.Services;
@@ -22,7 +23,12 @@ namespace UserStoryManager.Pages.UserStory
         public IActionResult OnPost()
         {
             Models.UserStory deletedUserStory = userStoryService.DeleteUserStory(UserStory.Id);
-            return RedirectToPage("UserStories");
+            return RedirectToPage(Request.Headers["Referer"].ToString());
+        }
+
+        public IActionResult OnPostReturn()
+        {
+            return Redirect(Request.Headers["Referer"].ToString());
         }
         
     }

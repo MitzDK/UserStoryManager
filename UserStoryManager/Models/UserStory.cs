@@ -1,36 +1,29 @@
 ﻿using System;
 namespace UserStoryManager.Models
 {
-    public class UserStory
+    public class UserStory : BacklogItem
     {
-        private static int nextId = 1;
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Story { get; set; }
+        public string AcceptanceCriteria { get; set; }
         public int BusinessValue { get; set; }
-        public DateTime CreationDate { get; set; }
-        public int Priority { get; set; }
         public string StoryPoints { get; set; }
-        public int State { get; set; }
-
 
         public UserStory()
         {
-
+            
         }
 
-        public UserStory(string title, string description, int businessValue, DateTime creationDate, int priority, string storyPoints)
+        public UserStory(string title, string description, int state, int priority, TeamMember developer, TeamMember creator, DateTime dateCreated, Sprint sprint, string note, int estimatedHours, int usedHours, DateTime dateTimeStarted, string story, string acceptanceCriteria, int businessValue, string storyPoints) : base(title, description, state, priority, developer, creator, dateCreated, sprint, note, estimatedHours, usedHours, dateTimeStarted)
         {
-            State = 0;
-            Id = nextId++;
-            Title = title;
-            Description = description;
+            Story = story;
+            AcceptanceCriteria = acceptanceCriteria;
             BusinessValue = businessValue;
-            CreationDate = creationDate;
-            Priority = priority;
             StoryPoints = storyPoints;
         }
 
-
+        public override string GetId()
+        {
+            return "U" + Id;
+        }
     }
 }

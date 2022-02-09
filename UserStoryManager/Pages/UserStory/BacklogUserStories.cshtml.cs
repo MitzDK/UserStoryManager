@@ -23,7 +23,7 @@ namespace UserStoryManager.Pages.UserStory
         public IActionResult OnPost(int id)
         {
             userStoryService.ChangeState(id);
-            return Page();
+            return RedirectToPage("/UserStory/BacklogUserStories");
         }
     }
 

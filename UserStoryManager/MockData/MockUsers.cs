@@ -8,17 +8,17 @@ namespace UserStoryManager.MockData
 {
     public class MockUsers
     {
-        private static List<User> users = new List<User>()
+        private static List<TeamMember> users = new List<TeamMember>()
         {
-            new User("Victor", "123"),
-            new User("Simon", "123"),
-            new User("Martin", "123"),
-            new User("Frederik", "123"),
-            new User("Andreas", "123"),
+            new TeamMember(1, "Victor Jejlskov", "Victor", "123", "Agent 007", "victor.png"),
+            new TeamMember(2, "Simon Boysen", "Simon", "123", "CEO Developer", "simom.png"),
+            new TeamMember(3, "Martin Lylloff", "Martin", "123", "Lead Designer", "martin.png"),
+            new TeamMember(4, "Frederik Bressendorff", "Frederik", "123", "Paint Artist", "frederik.png"),
+            new TeamMember(5, "Andreas Broberg", "Andreas", "123", "Døllerdreng", "andreas.png"),
 
         };
 
-        public static List<User> GetUsers()
+        public static List<TeamMember> GetUsers()
         {
             return users;
         }

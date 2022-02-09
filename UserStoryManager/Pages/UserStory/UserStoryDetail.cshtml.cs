@@ -9,16 +9,16 @@ namespace UserStoryManager.Pages.UserStory
     {
         [BindProperty] public Models.UserStory UserStory { get; set; }
         public List<Models.UserStory> UserStories { get; private set; }
-        private UserStoryService userStoryService;
+        private UserStoryService _userStoryService;
 
         public UserStoryDetailModel(UserStoryService userStoryService)
         {
-            this.userStoryService = userStoryService;
+            this._userStoryService = userStoryService;
         }
         public void OnGet(int id)
         {
-            UserStories = userStoryService.GetUserStories();
-            UserStory = userStoryService.GetUserStory(id);
+            UserStories = _userStoryService.GetUserStories();
+            UserStory = _userStoryService.GetUserStory(id);
         }
     }
 }
